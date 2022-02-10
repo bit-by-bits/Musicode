@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Ubuntu' , sans-serif;
+}
+a {
+    text-decoration: none;
+}
+body {
+    background-image: linear-gradient(to top right, rgb(169,47,193), rgb(42,17,101), rgb(34,45,158));
+    background-attachment: fixed;
+}
+main {
+    margin: 0 27vw 4vh 22vw;
+}
+
+/* COMMON CLASSES */
+
+.click:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+.hidden {
+    display: none;
+}
+
+/* NAVBAR */
+
+.navBar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    padding: 2rem;
+    top: 0;
+}
+.left {
+    width: 20vw;
+    left: 0;
+}
+.right {
+    width: 25vw;
+    right: 0;
+}
+.logo {
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px white;
+}
+.title {
+    text-shadow: 0px 0px 2px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.3rem;
+    margin-top: -0.5rem;
+    border-bottom: 1.5px solid;
+}
+.part {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+.button {
+    display: flex;
+    align-items: center;
+    margin-top: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+}
+.button:hover {
+    cursor: pointer;
+    border: 2px solid yellow;
+    background-color: black;
+    transition: all 0.15s ease;
+}
+.profile {
+    border: 3px solid yellow;
+    background-color: black;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    margin-top: -1rem;
+    padding: 0.3rem 0.5rem;
+    align-self: center;
+    width: max-content;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.face {
+    border-radius: 100%;
+    width: 2rem;
+}
+.name {
+    color: yellow;
+    margin: 0 0.5rem;    
+}
+
+/* MUSIC RECOMMENDATIONS */
+
+.choices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.choice {
+    width: 30%;
+    border-radius: 5px;
+}
+
+/* SONG PLAYLIST */
+
+.song {
+    display: grid;
+    align-items: center;
+    grid-gap: 0.5rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    grid-template-columns: 1fr 6fr 1fr 1fr;
+    border-bottom: 1px solid white;
+}
+.playSong {
+    display: flex;
+}
+.cover {
+    width: 2vw;
+}
+h2 {
+    text-shadow: 0px 0px 3px;
+    margin: 2rem 1rem;
+}
+
+/* MUSIC PLAYER */
+
+.player {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem 0;
+    margin: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px white;
+}
+.playerImg {
+    width: 20vw;
+}
+.progress {
+    width: 100%;
+}
+.songInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+}
+.lyrics {
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: rgba(1000, 1000, 1000, 0.2);
+}
+.fa:hover {
+    color: rgb(0,117,255);
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.control {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 1.3rem;
+    padding: 0.5rem;
+    justify-content: space-evenly;
+}
+.features {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem 0;
+}
+.vol {
+    width: 70%;
+}
+.volume {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
