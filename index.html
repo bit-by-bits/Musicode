@@ -1,3 +1,5 @@
+<!-- HTML FILE -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +20,7 @@
     <title>Musicode</title>
     <link rel="shortcut icon" href="Images/icon.png" type="image/x-icon">
 
-    <!-- ATTACHED CSS AND JS FILES -->
-    <script src="index.js"></script>
+    <!-- ATTACHED CSS FILE -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -123,256 +124,263 @@
             <div class="songInfo">
 
                 <!-- SONG NAME -->
-                <h3>Select A Song</h3>
+                <div id="name1">No Track Playing</div>
+                <div><marquee id="name2"> Pick Your Song</marquee></div>
 
                 <!-- PLAY/NEXT -->
                 <div class="control">
-                    <i class="fa fa-solid fa-backward"></i>
-                    <i class="fa-2x hidden fa fa-solid fa-pause"></i>
-                    <i class="fa-2x fa fa-solid fa-play"></i>
-                    <i class="fa fa-solid fa-forward"></i>
+                    <i class="fa fa-solid fa-backward" id="prev"></i>
+                    <i class="fa-3x fa fa-solid fa-play-circle" id="playPause"></i>
+                    <i class="fa fa-solid fa-forward" id="next"></i>
                 </div>
 
-                <!-- SONG PROGRESS BAR -->
+                <!-- PROGRESS BAR -->
+                <div class="progressBar">
+                <div id="start">00:00</div>
                 <input type="range" class="progress" min="0" value="0" max="100">
+                <div id="end">00:00</div>
+                </div>
 
-                <!-- OTHER OPTIONS -->
+                <!-- OTHER FEATURES -->
                 <div class="features">
 
-                    <!-- LOOP -->
-                    <img class="loop click" src="https://img.icons8.com/ios-filled/30/ffffff/repeat.png" />
-                    <img class="loop click hidden" src="https://img.icons8.com/ios-filled/30/ffffff/repeat-one.png" />
-                    <img class="loop click hidden" src="https://img.icons8.com/ios-filled/30/ffffff/rounded-rectangle-stroked.png" />
+                    <!-- SHUFFLE -->
+                    <i class="click fa fa-sort" id="shuffle"></i>
 
                     <!-- LYRICS -->
-                    <div class="click lyrics"><a href="#">LYRICS</a></div>
+                    <div class="click lyrics"><a target="_blank" href="https://gaana.com/lyrics">LYRICS</a></div>
 
-                    <!-- SHUFFLE -->
-                    <img class="click hidden shuffle" src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/25/ffffff/external-shuffle-arrows-arrows-vitaliy-gorbachev-fill-vitaly-gorbachev.png" />
-                    <img class="click shuffle" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/25/ffffff/external-shuffle-arrows-arrows-vitaliy-gorbachev-lineal-vitaly-gorbachev.png" />
-
+                    <!-- LOOP -->
+                    <i id="loop" class="fa click fa-recycle"></i>
+    
                 </div>
 
                 <!-- VOLUME BAR -->
                 <div class="volume">
-                    <img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/30/ffffff/external-speaker-interface-kiranshastry-solid-kiranshastry.png" /> <input type="range" class="vol" min="0" value="100" max="100">
+
+                    <!-- MUTE BUTTON -->
+                    <i id="mute" class="fa-solid fa fa-headphones"></i>
+
+                    <!-- VOLUME BAR -->
+                    <input id="volumeBar" type="range" class="vol" min="0" value="100" max="100">
+                    
                 </div>
 
             </div>
         </div>
 
         <!-- MUSIC PLAYLIST -->
-        <h2>SONGS FOR YOU</h2>        
+        <h2>SOME SONGS FOR YOU</h2>        
         <div class="playlist">
 
-            <div class="song song1">
+            <div class="song">
                 <img class="cover" src="Images/song1.jpg" alt="Error">
-                <span class="songName"><strong class="display">Excuses</strong> : AP Dhillon, Gurinder Gill, Insane</span>
-                <span class="songTime">2 : 56</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="1" class="songName">EXCUSES : AP Dhillon, Gurinder Gill, Insane</span>
+                <span>02 : 56</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song2">
+            <div class="song">
                 <img class="cover" src="Images/song2.jpg" alt="Error">
-                <span class="songName"><strong class="display">Raataan Lambiyaan</strong> : Jubin Nautiyal, Others</span>
-                <span class="songTime">3 : 50</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="2" class="songName">RAATAN LAMBIYAAN : Jubin Nautiyal, Others</span>
+                <span>03 : 50</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song3">
+            <div class="song">
                 <img class="cover" src="Images/song3.jpg" alt="Error">
-                <span class="songName"><strong class="display">Desires</strong> : AP Dhillon, Gurinder Gill, Others</span>
-                <span class="songTime">2 : 48</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="3" class="songName">DESIRES : AP Dhillon, Gurinder Gill, Others</span>
+                <span>02 : 48</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song4">
+            <div class="song">
                 <img class="cover" src="Images/song4.jpg" alt="Error">
-                <span class="songName"><strong class="display">Doobey</strong> : OAFF, Kausar Munir, Lothika</span>
-                <span class="songTime">3 : 39</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="4" class="songName">DOOBEY : OAFF, Kausar Munir, Lothika</span>
+                <span>03 : 39</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song5">
+            <div class="song">
                 <img class="cover" src="Images/song5.jpg" alt="Error">
-                <span class="songName"><strong class="display">Ranjha</strong> : B Praak, Jasleen, Romy, Anvita Dutt</span>
-                <span class="songTime">3 : 48</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="5" class="songName">RANJHA : B Praak, Jasleen, Romy, Anvita Dutt</span>
+                <span>03 : 48</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song6">
+            <div class="song">
                 <img class="cover" src="Images/song6.jpg" alt="Error">
-                <span class="songName"><strong class="display">Insane</strong> : AP Dhillon, Gurinder Gill, Others</span>
-                <span class="songTime">3 : 26</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="6" class="songName">INSANE : AP Dhillon, Gurinder Gill, Others</span>
+                <span>03 : 26</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song7">
+            <div class="song">
                 <img class="cover" src="Images/song7.jpg" alt="Error">
-                <span class="songName"><strong class="display">Shrivalli</strong> : Javed Ali, Devi Sri Prasad</span>
-                <span class="songTime">3 : 44</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="7" class="songName">SRIVALLI : Javed Ali, Devi Sri Prasad</span>
+                <span>03 : 44</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song8">
+            <div class="song">
                 <img class="cover" src="Images/song8.jpg" alt="Error">
-                <span class="songName"><strong class="display">Heat Waves</strong> : Glass Animals (Dreamland)</span>
-                <span class="songTime">3 : 58</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="8" class="songName">HEAT WAVES : Glass Animals (Dreamland)</span>
+                <span>03 : 58</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song9">
+            <div class="song">
                 <img class="cover" src="Images/song9.jpg" alt="Error">
-                <span class="songName"><strong class="display">Tere Te</strong> : AP Dhillon, Gurinder Gill, Insane</span>
-                <span class="songTime">1 : 54</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="9" class="songName">TERE TE : AP Dhillon, Gurinder Gill, Insane</span>
+                <span>01 : 54</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song10">
+            <div class="song">
                 <img class="cover" src="Images/song10.jpg" alt="Error">
-                <span class="songName"><strong class="display">Oo Antava</strong> : Indravathi Chauhan</span>
-                <span class="songTime">3 : 43</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="10" class="songName">OO ANTAVA : Indravathi Chauhan</span>
+                <span>03 : 43</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song11">
+            <div class="song">
                 <img class="cover" src="Images/song11.jpg" alt="Error">
-                <span class="songName"><strong class="display">Brown Munde</strong> : AP Dhillon, Gurinder Gill, Others</span>
-                <span class="songTime">4 : 14</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="11" class="songName">BROWN MUNDE : AP Dhillon, Gurinder Gill, Others</span>
+                <span>04 : 14</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song12">
+            <div class="song">
                 <img class="cover" src="Images/song12.jpg" alt="Error">
-                <span class="songName"><strong class="display">Stay</strong> : The Kid Laroi, Justin Bieber</span>
-                <span class="songTime">2 : 21</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="12" class="songName">STAY : The Kid Laroi, Justin Bieber</span>
+                <span>02 : 21</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song13">
+            <div class="song">
                 <img class="cover" src="Images/song13.jpg" alt="Error">
-                <span class="songName"><strong class="display">Bijlee Bijlee</strong> : Harrdy Sandhu</span>
-                <span class="songTime">2 : 48</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="13" class="songName">BIJLEE BIJLEE : Harrdy Sandhu</span>
+                <span>02 : 48</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song14">
+            <div class="song">
                 <img class="cover" src="Images/song14.jpg" alt="Error">
-                <span class="songName"><strong class="display">Rait Zara Si</strong> : AR Rahman, Arijit Singh, Sashaa</span>
-                <span class="songTime">4 : 51</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="14" class="songName">RAIT ZARA SI : AR Rahman, Arijit Singh, Sashaa</span>
+                <span>04 : 51</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song15">
+            <div class="song">
                 <img class="cover" src="Images/song15.jpg" alt="Error">
-                <span class="songName"><strong class="display">Spaceship</strong> : AP Dhillon, Ghinda Kahlon, Gminxr</span>
-                <span class="songTime">2 : 04</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="15" class="songName">SPACESHIP : AP Dhillon, Ghinda Kahlon, Gminxr</span>
+                <span>02 : 04</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song16">
+            <div class="song">
                 <img class="cover" src="Images/song16.jpg" alt="Error">
-                <span class="songName"><strong class="display">Tu Aake Dekhle</strong> : King</span>
-                <span class="songTime">4 : 30</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="16" class="songName">TU AAKE DEKHLE : King</span>
+                <span>04 : 30</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song17">
+            <div class="song">
                 <img class="cover" src="Images/song17.jpg" alt="Error">
-                <span class="songName"><strong class="display">Adiye</strong> : Dhibu Ninan Thomas, Kapil Kapilan</span>
-                <span class="songTime">4 : 32</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="17" class="songName">ADIYE : Dhibu Ninan Thomas, Kapil Kapilan</span>
+                <span>04 : 32</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song18">
+            <div class="song">
                 <img class="cover" src="Images/song18.jpg" alt="Error">
-                <span class="songName"><strong class="display">Industry Baby</strong> : Lil Nas X, Jack Harlow</span>
-                <span class="songTime">3 : 32</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="18" class="songName">INDUSTRY BABY : Lil Nas X, Jack Harlow</span>
+                <span>03 : 32</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
             
-            <div class="song song19">
+            <div class="song">
                 <img class="cover" src="Images/song19.jpg" alt="Error">
-                <span class="songName"><strong class="display">Ma Belle</strong> : AP Dhillon, Amari, Others</span>
-                <span class="songTime">2 : 40</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="19" class="songName">MA BELLE : AP Dhillon, Amari, Others</span>
+                <span>02 : 40</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song20">
+            <div class="song">
                 <img class="cover" src="Images/song20.jpg" alt="Error">
-                <span class="songName"><strong class="display">Gehraiyaan</strong> : OAFF, Ankur Tiwari, Lothika</span>
-                <span class="songTime">2 : 59</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="20" class="songName">GEHRAIYAAN : OAFF, Ankur Tiwari, Lothika</span>
+                <span>02 : 59</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song21">
+            <div class="song">
                 <img class="cover" src="Images/song21.jpg" alt="Error">
-                <span class="songName"><strong class="display">We Rollin</strong> : Shubh</span>
-                <span class="songTime">3 : 19</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="21" class="songName">WE ROLLIN : Shubh</span>
+                <span>03 : 19</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song22">
+            <div class="song">
                 <img class="cover" src="Images/song22.jpg" alt="Error">
-                <span class="songName"><strong class="display">Jugnu</strong> : Badshah, Nikhita Gandhi</span>
-                <span class="songTime">3 : 50</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="22" class="songName">JUGNU : Badshah, Nikhita Gandhi</span>
+                <span>03 : 50</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song23">
+            <div class="song">
                 <img class="cover" src="Images/song23.jpg" alt="Error">
-                <span class="songName"><strong class="display">Agar Tum Saath Ho</strong> : Arijit Singh</span>
-                <span class="songTime">5 : 41</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="23" class="songName">AGAR TUM SAATH HO : Arijit Singh</span>
+                <span>05 : 41</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song24">
+            <div class="song">
                 <img class="cover" src="Images/song24.jpg" alt="Error">
-                <span class="songName"><strong class="display">Love Nwantiti</strong> : CKay, DJ Yo!, Ax'el</span>
-                <span class="songTime">3 : 08</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="24" class="songName">LOVE NWANTITI : CKay, DJ Yo!, Ax'el</span>
+                <span>03 : 08</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song25">
+            <div class="song">
                 <img class="cover" src="Images/song25.jpg" alt="Error">
-                <span class="songName"><strong class="display">Enemy</strong> : Imagine Dragons, JID, Arcane</span>
-                <span class="songTime">2 : 53</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="25" class="songName">ENEMY : Imagine Dragons, JID, Arcane</span>
+                <span>02 : 53</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song26">
+            <div class="song">
                 <img class="cover" src="Images/song26.jpg" alt="Error">
-                <span class="songName"><strong class="display">Let Me Down Slowly</strong> : Alec Benjamin</span>
-                <span class="songTime">2 : 49</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="26" class="songName">LET ME DOWN SLOWLY : Alec Benjamin</span>
+                <span>02 : 49</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song27">
+            <div class="song">
                 <img class="cover" src="Images/song27.jpg" alt="Error">
-                <span class="songName"><strong class="display">Dil Ko Karaar Aaya</strong> : Yasser Desai, Neha Kakkar</span>
-                <span class="songTime">3 : 51</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="27" class="songName">DIL KO KARAAR AAYA : Yasser Desai, Neha Kakkar</span>
+                <span>03 : 51</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song28">
+            <div class="song">
                 <img class="cover" src="Images/song28.jpg" alt="Error">
-                <span class="songName"><strong class="display">Toxic</strong> : AP Dhillon, Intense, Others</span>
-                <span class="songTime">3 : 04</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="28" class="songName">TOXIC : AP Dhillon, Intense, Others</span>
+                <span>03 : 04</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song29">
+            <div class="song">
                 <img class="cover" src="Images/song29.jpg" alt="Error">
-                <span class="songName"><strong class="display">Kina Chir</strong> : The ProcheC</span>
-                <span class="songTime">3 : 36</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="29" class="songName">KINA CHIR : The ProcheC</span>
+                <span>03 : 36</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
-            <div class="song song30">
+            <div class="song">
                 <img class="cover" src="Images/song30.jpg" alt="Error">
-                <span class="songName"><strong class="display">Ykwim</strong> : Karan Aujla, KR&dollar;NA, Mehar</span>
-                <span class="songTime">3 : 14</span>
-                <span class="playSong">Add &nbsp; <img src="https://img.icons8.com/ios/17/ffffff/like--v1.png" /></span>
+                <span id="30" class="songName">YKWIM : Karan Aujla, KR&dollar;NA, Mehar</span>
+                <span>03 : 14</span>
+                <span class="favourite click">Like &nbsp; <i class="fa-regular fa-heart fa"></i></span>
             </div>
 
         </div>
@@ -404,7 +412,19 @@
             <img class="click choice" src="Images/choice9.jpg" alt="Error">
         </div>
 
-    </main>
-</body>
+        <!-- RECOMMENDATIONS 4 -->
+        <h2>SPORTIFY YOURSELF</h2>
 
+        <div class="choices">
+            <img class="click choice" src="Images/choice10.jpg" alt="Error">
+            <img class="click choice" src="Images/choice11.jpg" alt="Error">
+            <img class="click choice" src="Images/choice12.jpg" alt="Error">
+        </div>
+
+    </main>
+
+    <!-- ATTACHED JS FILE -->
+    <script src="index.js"></script>
+
+</body>
 </html>
