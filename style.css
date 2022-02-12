@@ -1,34 +1,83 @@
 /* CSS FILE */
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: white;
     font-family: 'Ubuntu', sans-serif;
 }
-a {
+a{
     text-decoration: none;
 }
-body {
+body{
     background-image: linear-gradient(to top right, rgb(169,47,193), rgb(42,17,101), rgb(34,45,158));
     background-attachment: fixed;
 }
-main {
+main{
     margin: 0 27vw 4vh 22vw;
 }
 
 /* COMMON CLASSES */
 
-.click:hover {
+.click:hover{
     cursor: pointer;
     transform: scale(1.1);
     transition: all 0.3s ease;
 }
 
+/* LOADER */
+
+.loaderBg{
+    position: fixed;
+    z-index: 101;
+    background: darkviolet;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader{
+    border: 0 solid transparent;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+}
+.loader:before, .loader:after{
+    content: '';
+    border: 1em solid white;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+}
+.loader:before{
+    animation-delay: 0.5s;
+}
+@keyframes loader{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
 /* NAVBAR */
 
-.navBar {
+.navBar{
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -37,19 +86,19 @@ main {
     padding: 2rem;
     top: 0;
 }
-.left {
+.left{
     width: 20vw;
     left: 0;
 }
-.right {
+.right{
     width: 25vw;
     right: 0;
 }
-.logo {
+.logo{
     border-radius: 8px;
     box-shadow: 0px 0px 15px white;
 }
-.title {
+.title{
     text-shadow: 0px 0px 2px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -57,25 +106,25 @@ main {
     margin-top: -0.5rem;
     border-bottom: 1.5px solid;
 }
-.part {
+.part{
     display: flex;
     flex-direction: column;
     padding-top: 2rem;
 }
-.button {
+.button{
     display: flex;
     align-items: center;
     margin-top: 0.4rem;
     padding: 0.4rem 1rem;
     border-radius: 5px;
 }
-.button:hover {
+.button:hover{
     cursor: pointer;
     border: 2px solid greenyellow;
     background-color: black;
     transition: all 0.15s ease;
 }
-.profile {
+.profile{
     border: 3px solid cyan;
     background-color: black;
     border-radius: 5px;
@@ -89,22 +138,22 @@ main {
     justify-content: space-evenly;
     align-items: center;
 }
-.face {
+.face{
     border-radius: 100%;
     width: 2rem;
 }
-.name {
+.name{
     margin: 0 0.5rem;    
 }
 
 /* MUSIC RECOMMENDATIONS */
 
-.choices {
+.choices{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.choice {
+.choice{
     width: 30%;
     border-radius: 5px;
 }
@@ -115,7 +164,7 @@ main {
     height: 200px;
     overflow-y: scroll;
 }
-.song {
+.song{
     display: grid;
     align-items: center;
     grid-gap: 0.5rem;
@@ -124,22 +173,22 @@ main {
     grid-template-columns: 1fr 7fr 1fr 1fr;
     border-bottom: 1px solid white;
 }
-.favourite {
+.favourite{
     display: flex;
     align-items: baseline;
     justify-content: center;
 }
-.cover {
-    width: 2vw;
+.cover{
+    width: 2.7vw;
 }
-h2 {
+h2{
     text-shadow: 0px 0px 3px;
     margin: 2rem 1rem;
 }
 
 /* MUSIC PLAYER */
 
-.player {
+.player{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -149,10 +198,10 @@ h2 {
     border-radius: 20px;
     box-shadow: 0px 0px 10px;
 }
-.playerImg {
+.playerImg{
     width: 20vw;
 }
-.songInfo {
+.songInfo{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -174,20 +223,20 @@ h2 {
     justify-content: space-between;
     margin: 0 -1rem;
 }
-.progress {
+.progress{
     width: 50%;
     margin-top: 10px;
     box-shadow: 0px 0px 20px rgba(1000, 1000, 1000, 0.7);
     height: 4px;
 }
-.lyrics {
+.lyrics{
     padding: 0.5rem;
     border-radius: 5px;
     background-color: black;
     font-weight: bold;
     border: 2px solid cyan;
 }
-.fa-solid:hover {
+.fa-solid:hover{
     transition: all 0.2s ease;
     cursor: pointer;
     text-shadow: 2px 2px  cyan;
@@ -195,7 +244,7 @@ h2 {
 .fa-recycle, .fa-sort, .fa-headphones, .fa-forward, .fa-backward{
     font-size: 1.5rem;
 }
-.control {
+.control{
     width: 100%;
     display: flex;
     align-items: center;
@@ -203,27 +252,246 @@ h2 {
     padding: 0.5rem;
     justify-content: space-evenly;
 }
-.features {
+.features{
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0.7rem 0 2rem 0;
 }
-.vol {
+.vol{
     width: 70%;
     box-shadow: 0px 0px 20px rgba(1000, 1000, 1000, 0.7);
     height: 4px;
 }
-.vol:hover, .progress:hover {
+.vol:hover, .progress:hover{
     cursor: pointer;
 }
 .songName{
     cursor: pointer;
     text-shadow: 0px 0px 1.8px;
 }
-.volume {
+.volume{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 1750px){
+    *{
+        font-size: 1.1rem;
+    }
+}
+@media screen and (min-width: 1950px){
+    *{
+        font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 1050px){
+    .one{
+        display: none;
+    }
+}
+@media screen and (max-width: 1250px){
+    .song{
+        grid-template-columns: 1fr 5.8fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 1120px){
+    .song{
+        grid-template-columns: 1fr 4.5fr 1fr 1fr;
+    }
+    .cover{
+        width: 3vw;
+    }
+}
+@media screen and (max-width: 1050px){
+    .cover{
+        width: 3.5vw;
+    }
+    .player{
+        flex-direction: column;
+    }
+    .playerImg{
+        width: 46vw;
+        margin: 2rem;
+    }
+    .right{
+        display: none;
+    }
+    .left{
+        width: 30vw;
+        overflow-y: scroll;
+    }
+    main{
+        margin: 0 5vw 4vh 35vw;
+    }
+}
+@media screen and (max-width: 800px){
+    .cover{
+        width: 4vw;
+    }
+    .song{
+        grid-template-columns: 1fr 4fr 1fr 1fr;
+    }
+    .user{
+        transform: scale(1.1);
+    }
+}
+@media screen and (max-width: 680px){
+    .cover{
+        width: 4.6vw;
+    }
+    .song{
+        grid-template-columns: 1fr 3.5fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 650px){
+    .song{
+        grid-template-columns: 1fr 5fr 1fr 1fr;
+    }
+    #name2{
+        width: 35vw;
+    }
+    .left{
+        display: none;
+    }
+    main{
+        margin: 10vw;
+    }
+    .player{
+        margin: -1rem;
+        margin-bottom: 1rem;
+    }
+    .cover{
+        width: 5.5vw;
+    }
+    .playerImg{
+        width: 60vw;
+    }
+}
+@media screen and (max-width: 590px){
+    .song{
+        grid-template-columns: 1fr 4fr 1fr 1fr;
+    }    
+    .cover{
+        width: 6vw;
+    }
+}
+@media screen and (max-width: 510px){
+    .hide{
+        display: none;
+    }
+    .song{
+        display: flex;
+        justify-content: space-between;
+    }
+    .cover{
+        width: 7vw;
+        margin-right: 1rem;
+    }
+}
+@media screen and (max-width: 410px){
+    h2{
+        font-size: 1.1rem;
+    }
+    .cover{
+        display: none;
+    }
+}
+
+/* HIDDEN MENU BAR */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    padding-bottom: 0;
+}
+.three{
+    height: 10vh;
+}
+.hamburger{
+    width: 25px;
+    height: 10vh;
+	cursor: pointer;	
+	background: none;
+	border: none;
+    z-index: 100;
+}
+.hamburger .bar, .hamburger::after, .hamburger::before{
+	content: '';
+	display: block;
+	width: 100%;
+	height: 0.25rem;
+	background-color: cyan;
+	margin: 6px 0px;
+	transition: 0.4s;
+}
+.hamburger.mode::before{
+	transform: rotate(-45deg) translate(-7px, 7px);
+}
+.hamburger.mode::after{
+	transform: rotate(45deg) translate(-7px, -7px);
+}
+.hamburger.mode .bar{
+	opacity: 0;
+}
+.sideMenu{
+	position: fixed;
+	top: 0;
+	left: 100vw;
+	min-height: 100vh;
+	width: 100%;
+	z-index: 97;
+
+	background-color: rgb(18, 0, 47);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	transition: 0.5s;
+}
+.sideMenu.mode{
+	left: 0;
+}
+.sideMenu a{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+	width: 100%;
+	max-width: 200px;
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+	background-color: rgba(1000, 1000, 1000, 0.1);
+	color: white;
+	text-decoration: none;
+}
+.sideMenu a:hover{
+    cursor: pointer;
+    background-color: black;
+    border: 2px solid greenyellow;
+}
+@media (min-width: 650px){
+	.sideMenu{
+		display: none;
+	}
+	header{
+		display: none;
+	}
+}
+@media (max-width: 460px){
+    header{
+        padding: 1rem;
+    }
+}
+@media (max-width: 300px){
+    .three{
+        display: none;
+    }
 }

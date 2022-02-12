@@ -15,12 +15,14 @@ let mute = document.getElementById('mute');
 let shuffle = document.getElementById('shuffle');
 let volumeBar = document.getElementById('volumeBar');
 let end = document.getElementById('end');
+let button = document.querySelector('.hamburger');
+let menu = document.querySelector('.sideMenu');
 let progressBar = document.getElementsByClassName('progress');
 let image = document.getElementsByClassName('playerImg');
 let song = Array.from(document.getElementsByClassName('songName'));
 let add = Array.from(document.getElementsByClassName('favourite'));
 
-// SONG INFORMATION
+// SONG INFO STORAGE
 let songs = [
     { time: "02:56", trackName: "Excuses", artists: "AP Dhillon, Gurinder Gill, Insane" },
     { time: "03:50", trackName: "Raatan Lambiyaan", artists: "Jubin Nautiyal, Others" },
@@ -55,12 +57,15 @@ let songs = [
 ]
 
 // UPDATE SONG INFO
+var playingTemp;
 let playerUpdate = function () {
     music.src = `Songs/song${number}.mp3`;
     image[0].src = `Images/song${number}.jpg`;
     track.innerText = songs[number - 1].trackName;
     author.innerText = songs[number - 1].artists;
     end.innerText = songs[number - 1].time;
+
+    playingTemp = number;
 
     music.play();
     music.currentTime = 0;
@@ -90,7 +95,7 @@ play.addEventListener("click", () => {
 // SHUFFLE BUTTON
 
 // GENERAL //
-var randomNum, randomTemp;
+var randomNum;
 shuffle.addEventListener('click', () => {
 
     shuffleCount += 1;
@@ -105,7 +110,6 @@ function shuffleOn() {
     shuffle.style.color = 'cyan';
     number = Math.ceil(Math.random() * 30);
     playerUpdate();
-    randomTemp = number;
 
     randomNum = window.setInterval(() => {
         number = Math.ceil(Math.random() * 30);
@@ -116,13 +120,13 @@ function shuffleOff() {
 
     shuffle.style.color = 'white';
     clearInterval(randomNum);
-    number = randomTemp;
+    number = playingTemp;
 }
 
 // LOOP BUTTON
 
 // GENERAL //
-var sameNum, sameTemp;
+var sameNum;
 loop.addEventListener('click', () => {
 
     loopCount += 1;
@@ -135,15 +139,14 @@ loop.addEventListener('click', () => {
 function loopOn() {
 
     loop.style.color = 'cyan';
-    sameTemp = number - 1;
-    sameNum = window.setInterval(() => { number = sameTemp }, 1);
+    sameNum = window.setInterval(() => { number = playingTemp - 1 }, 1);
 }
 // BUTTON OFF //
 function loopOff() {
 
     loop.style.color = 'white';
     clearInterval(sameNum);
-    number = sameTemp;
+    number = playingTemp - 1;
 }
 
 // MUTE BUTTON
@@ -179,7 +182,7 @@ add.forEach((element) => {
 
     element.addEventListener('click', (i) => {
 
-        element.textContent = 'Liked!';
+        element.textContent = 'Liked';
         element.style.color = 'cyan';
     })
 })
@@ -193,6 +196,9 @@ song.forEach((element) => {
         playerUpdate();
         loopOff();
         shuffleOff();
+        shuffleCount += 1;
+        loopCount += 1;
+
         number = parseInt(i.target.id);
     })
 })
@@ -208,10 +214,16 @@ next.addEventListener('click', () => {
 // MOVE PREV
 prev.addEventListener('click', () => {
 
-    if (loopCount % 2 == 1) next.click();
+    if (loop.style.color == 'cyan') next.click();
     else {
         if (number < 2) number = 30;
         else number -= 1;
         playerUpdate();
     }
 })
+
+// MENU BUTTON
+button.addEventListener('click', function () {
+    button.classList.toggle('mode');
+    menu.classList.toggle('mode');
+});
