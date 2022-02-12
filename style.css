@@ -407,12 +407,12 @@ h2{
 
 header{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
     padding: 2rem;
     padding-bottom: 0;
-}
-.three{
-    height: 10vh;
+    text-shadow: 0px 0px 3px;
+
 }
 .hamburger{
     width: 25px;
@@ -488,10 +488,5 @@ header{
 @media (max-width: 460px){
     header{
         padding: 1rem;
-    }
-}
-@media (max-width: 300px){
-    .three{
-        display: none;
     }
 }
