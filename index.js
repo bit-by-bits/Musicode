@@ -15,12 +15,17 @@ let mute = document.getElementById('mute');
 let shuffle = document.getElementById('shuffle');
 let volumeBar = document.getElementById('volumeBar');
 let end = document.getElementById('end');
+let ahead = document.getElementById('ahead');
+let back = document.getElementById('back');
+let carousel = document.getElementById('carousel');
+let lyr = document.getElementById('lyricsLink');
 let button = document.querySelector('.hamburger');
 let menu = document.querySelector('.sideMenu');
 let progressBar = document.getElementsByClassName('progress');
 let image = document.getElementsByClassName('playerImg');
+let songSelect = document.getElementsByClassName('song');
 let song = Array.from(document.getElementsByClassName('songName'));
-let add = Array.from(document.getElementsByClassName('favourite'));
+let add = Array.from(document.getElementsByClassName('fa-heart'));
 
 // SONG INFO STORAGE
 let songs = [
@@ -65,7 +70,12 @@ let playerUpdate = function () {
     author.innerText = songs[number - 1].artists;
     end.innerText = songs[number - 1].time;
 
+    lyr.addEventListener('click', () => {
+        location.href = `Lyrics/lyrics${number}.html`;
+    })
+
     playingTemp = number;
+    songSelect[playingTemp - 1].classList.add('songBg');
 
     music.play();
     music.currentTime = 0;
@@ -79,6 +89,7 @@ play.addEventListener("click", () => {
         if (number == 0) {
             number = 1;
             playerUpdate();
+
         } else {
             let temp = music.currentTime;
             music.play();
@@ -93,17 +104,18 @@ play.addEventListener("click", () => {
 })
 
 // SHUFFLE BUTTON
-
-// GENERAL //
 var randomNum;
 shuffle.addEventListener('click', () => {
 
     shuffleCount += 1;
+
     if (shuffleCount % 2 === 1) {
+        songSelect[playingTemp - 1].classList.remove('songBg');
         loopOff();
         shuffleOn();
     } else shuffleOff();
 })
+
 // BUTTON ON //
 function shuffleOn() {
 
@@ -115,6 +127,7 @@ function shuffleOn() {
         number = Math.ceil(Math.random() * 30);
     }, 999);
 }
+
 // BUTTON OFF //
 function shuffleOff() {
 
@@ -124,8 +137,6 @@ function shuffleOff() {
 }
 
 // LOOP BUTTON
-
-// GENERAL //
 var sameNum;
 loop.addEventListener('click', () => {
 
@@ -135,12 +146,14 @@ loop.addEventListener('click', () => {
         loopOn();
     } else loopOff();
 })
+
 // BUTTON ON //
 function loopOn() {
 
     loop.style.color = 'cyan';
     sameNum = window.setInterval(() => { number = playingTemp - 1 }, 1);
 }
+
 // BUTTON OFF //
 function loopOff() {
 
@@ -153,6 +166,7 @@ function loopOff() {
 mute.addEventListener('click', () => {
     music.volume = 0;
     volumeBar.value = 0;
+    mute.classList.replace('fa-microphone', 'fa-microphone-slash');
 })
 
 // MOVE PROGRESS BAR
@@ -162,6 +176,7 @@ music.addEventListener('timeupdate', () => {
     progressBar[0].value = progress;
 
     if (music.currentTime === music.duration) {
+        songSelect[playingTemp - 1].classList.remove('songBg');
         number += 1;
         playerUpdate();
     }
@@ -175,15 +190,17 @@ progressBar[0].addEventListener('change', () => {
 // CONTROL VOLUME BAR
 volumeBar.addEventListener('change', () => {
     music.volume = volumeBar.value / 100;
+
+    if (music.volume == 0) mute.classList.replace('fa-microphone', 'fa-microphone-slash');
+    if (music.volume != 0) mute.classList.replace('fa-microphone-slash', 'fa-microphone');
 })
+
 
 // LIKE SONGS
 add.forEach((element) => {
 
     element.addEventListener('click', (i) => {
-
-        element.textContent = 'Liked';
-        element.style.color = 'cyan';
+        element.classList.toggle('red');
     })
 })
 
@@ -205,6 +222,7 @@ song.forEach((element) => {
 
 // MOVE NEXT
 next.addEventListener('click', () => {
+    songSelect[playingTemp - 1].classList.remove('songBg');
 
     if (number > 29) number = 1;
     else number += 1;
@@ -213,6 +231,7 @@ next.addEventListener('click', () => {
 
 // MOVE PREV
 prev.addEventListener('click', () => {
+    songSelect[playingTemp - 1].classList.remove('songBg');
 
     if (loop.style.color == 'cyan') next.click();
     else {
@@ -220,6 +239,23 @@ prev.addEventListener('click', () => {
         else number -= 1;
         playerUpdate();
     }
+})
+
+// SLIDER AHEAD
+var carCount=1;
+ahead.addEventListener('click', () => {
+    
+    if (carCount > 5) carCount = 1;
+    else carCount += 1;
+    carousel.src = `Images/car${carCount}.jpg`;
+})
+
+// SLIDER BACK
+back.addEventListener('click', () => {
+    
+    if (carCount < 2) carCount = 6;
+    else carCount -= 1;
+    carousel.src = `Images/car${carCount}.jpg`;
 })
 
 // MENU BUTTON
