@@ -208,6 +208,7 @@ add.forEach((element) => {
 song.forEach((element) => {
 
     element.addEventListener('click', (i) => {
+        if (music.currentTime != 0) songSelect[playingTemp - 1].classList.remove('songBg');
 
         number = parseInt(i.target.id);
         playerUpdate();
