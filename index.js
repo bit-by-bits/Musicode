@@ -14,6 +14,7 @@ let loop = document.getElementById('loop');
 let mute = document.getElementById('mute');
 let shuffle = document.getElementById('shuffle');
 let volumeBar = document.getElementById('volumeBar');
+let start = document.getElementById('start');
 let end = document.getElementById('end');
 let ahead = document.getElementById('ahead');
 let back = document.getElementById('back');
@@ -62,7 +63,7 @@ let songs = [
 ]
 
 // UPDATE SONG INFO
-var playingTemp;
+var playingTemp, playingTime;
 let playerUpdate = function () {
     music.src = `Songs/song${number}.mp3`;
     image[0].src = `Images/song${number}.jpg`;
@@ -76,6 +77,16 @@ let playerUpdate = function () {
 
     playingTemp = number;
     songSelect[playingTemp - 1].classList.add('songBg');
+
+    playingTime = window.setInterval(() => {
+        let mins = Math.floor(music.currentTime / 60);
+        let secs = Math.floor(music.currentTime - mins*60);
+        
+        if (secs < 10) { secs = "0" + secs; }
+        if (mins < 10) { mins = "0" + mins; }
+    
+        start.textContent = mins + ":" + secs;
+    }, 100);
 
     music.play();
     music.currentTime = 0;
@@ -110,7 +121,8 @@ shuffle.addEventListener('click', () => {
     shuffleCount += 1;
 
     if (shuffleCount % 2 === 1) {
-        songSelect[playingTemp - 1].classList.remove('songBg');
+        if (music.currentTime != 0) songSelect[playingTemp - 1].classList.remove('songBg');
+
         loopOff();
         shuffleOn();
     } else shuffleOff();
@@ -122,6 +134,8 @@ function shuffleOn() {
     shuffle.style.color = 'cyan';
     number = Math.ceil(Math.random() * 30);
     playerUpdate();
+
+    alert('Your queue is now shuffled.\nConfirm to continue.');
 
     randomNum = window.setInterval(() => {
         number = Math.ceil(Math.random() * 30);
